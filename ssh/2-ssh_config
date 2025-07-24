@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# script to configure an client to my server
+Host schoolserver
+HostName 54.146.236.108
+User ubuntu
+IdentitydFile ~/.ssh/school
