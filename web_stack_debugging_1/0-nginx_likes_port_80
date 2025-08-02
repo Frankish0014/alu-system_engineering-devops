@@ -1,16 +1,8 @@
 #!/usr/bin/env bash
-#nginx must be runnign and listening to the port 80 
-# I make sure to automate installing nginx if it's not already installed.
+# configures nginx to run and listen to port 80
 
-apt-get update -y
-apt-get install -y nginx
-
-#let's make asure nginx is running
-service nginx start
-
-#Let's ensure nginx is listening on port 80 on all IPv4 interfaces
-sed -i 's/listen 80 default_server;/listen 80 default_server;\n    listen [::]:80 default_server;/' /etc/nginx/sites-available/default
-
+rm /etc/nginx/sites-enabled/default
+cd /etc/nginx/sites-enabled/
+ln -s ../sites-available/default
+service nginx restart
 curl 0:80
-#reload nginx to apply changes
-service nginx reload
