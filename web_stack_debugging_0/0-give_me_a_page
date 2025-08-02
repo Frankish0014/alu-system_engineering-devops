@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Commands to fix Apache in Docker container
 
 # Create the HTML file with required content
