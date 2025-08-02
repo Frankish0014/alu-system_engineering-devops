@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-
 #nginx must be runnign and listening to the port 80 
 # I make sure to automate installing nginx if it's not already installed.
+
 apt-get update -y
 apt-get install -y nginx
 
