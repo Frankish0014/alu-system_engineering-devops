@@ -11,5 +11,6 @@ service nginx start
 #Let's ensure nginx is listening on port 80 on all IPv4 interfaces
 sed -i 's/listen 80 default_server;/listen 80 default_server;\n    listen [::]:80 default_server;/' /etc/nginx/sites-available/default
 
+curl 0:80
 #reload nginx to apply changes
 service nginx reload
