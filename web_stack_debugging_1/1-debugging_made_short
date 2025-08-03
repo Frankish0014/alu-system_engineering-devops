@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# script to debug in a short code
-apt-get install -y nginx
+# script to debug in a short cod
 rm -f /var/run/nginx.pid
 nginx -g 'daemon off:' &
+curl 0:80
