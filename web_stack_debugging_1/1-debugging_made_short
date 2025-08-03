@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # script to debug in a short code
-apt-get update
 apt-get install -y nginx
 rm -f /var/run/nginx.pid
 nginx -g 'daemon off:' &
