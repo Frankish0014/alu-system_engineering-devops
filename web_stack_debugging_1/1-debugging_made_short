@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# configure nginx to run on port 80
+# Start Nginx without using service, and make sure it runs on port 80
+apt-get update
 apt-get install -y nginx
-rm -f /var/run/nginx.pid
-curl 0:80
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+nginx -g 'daemon off;'
