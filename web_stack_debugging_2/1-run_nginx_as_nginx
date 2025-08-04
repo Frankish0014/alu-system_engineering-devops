@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Running as Nginx user
+
+#This will first kill Nginx if running
+pkill nginx
+
+# Confugurations to be made to make sure nginx listens on port 8080
+sed -i 's/#user www-data;/user nginx;' /etc/nginx/nginx.conf
+sed -i 's/user www-data;/user nginx;' /etc/nginx/nginx.conf
+sed -i 's/80;/8080;/' /etc/nginx/sites-available/default
+sed -i 's/:80;/:8080;' /etc/nginx/sites-available/default
+
+# let's ensure nginx user exist.
+if ! id nginx >/dev/null 2>&1; then
+	useradd -r -s /bin/false nginx
+fi
+
+
+#ensure ownership for nginx directories
+chown -R nginx:nginx /var/log/nginx
+chown -R nginx:ngnix /var/lib/nginx
+
+#start nginx as nginx user
+sudo -u nginx nginx
